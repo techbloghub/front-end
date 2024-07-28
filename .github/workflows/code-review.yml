@@ -22,3 +22,9 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MODEL: 'gpt-3.5-turbo'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Discord Webhook Action
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: '코드 리뷰 완료하였습니다~~!'
