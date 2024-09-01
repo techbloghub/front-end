@@ -4,6 +4,5 @@ export const wrapper = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  flexDirection: 'row',
   justifyContent: 'center',
 });
