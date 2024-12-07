@@ -3,10 +3,11 @@ import { style } from '@vanilla-extract/css';
 export const wrapper = style({
   display: 'flex',
   flexWrap: 'wrap',
+  justifyContent: 'center',
 
   marginTop: '60px',
   maxWidth: '1200px',
-  gap: '66px',
+  gap: '30px',
 });
 
 export const cardWrapper = style({
@@ -18,6 +19,12 @@ export const cardWrapper = style({
   borderRadius: '12px',
 
   backgroundColor: '#6A6868',
+
+  transition: 'transform 0.5s ease-in-out',
+  cursor: 'pointer',
+  ':hover': {
+    transform: 'translateY(-8px)',
+  },
 });
 
 export const cardImageWrapper = style({
