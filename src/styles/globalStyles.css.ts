@@ -25,17 +25,17 @@ const themeColor = createThemeContract({
 
 export const lightTheme = createTheme(themeColor, {
   color: {
-    mainBackground: '#000000',
+    mainBackground: '#ffffff',
     contentBackground: '#ffffff',
-    mainFontColor: '#ffffff',
+    mainFontColor: '#000000',
   },
 });
 
 export const darkTheme = createTheme(themeColor, {
   color: {
-    mainBackground: '#ffffff',
+    mainBackground: '#000000',
     contentBackground: '#2c2c2c',
-    mainFontColor: '#000000',
+    mainFontColor: '#ffffff',
   },
 });
 
