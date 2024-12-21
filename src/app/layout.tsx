@@ -1,3 +1,4 @@
+import ThemeProvider from '@/providers/ThemeProvider/ThemeProvider';
 import '../styles/globalStyles.css.ts';
 
 export default function RootLayout({
@@ -7,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
