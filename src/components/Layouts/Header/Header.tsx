@@ -1,7 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import * as styles from './header.css';
+import { useTheme } from 'next-themes';
 
 export default function Header() {
+  const { resolvedTheme, setTheme } = useTheme();
+
   return (
     <header className={styles.wrapper}>
       <a className={styles.left} href="/" aria-label="Home">
@@ -9,7 +14,13 @@ export default function Header() {
         <h1 className={styles.title}>TechBlogHub</h1>
       </a>
       <nav className={styles.right} aria-label="User controls">
-        <Image src="/images/buttons/dark.png" alt="theme" width={32} height={32} />
+        <Image
+          src="/images/buttons/dark.png"
+          alt="theme"
+          width={32}
+          height={32}
+          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+        />
       </nav>
     </header>
   );
