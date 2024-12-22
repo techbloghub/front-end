@@ -7,4 +7,5 @@ export const wrapper = style({
   justifyContent: 'center',
 
   gap: '14px',
+  height: '50px',
 });
