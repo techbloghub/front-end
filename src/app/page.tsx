@@ -1,6 +1,6 @@
-import Card from '@/components/Items/Card/Card';
-import Header from '@/components/Layouts/Header/Header';
-import Search from '@/components/Inputs/Search/Search';
+import Search from '@/components/features/Inputs/Search/Search';
+import Card from '@/components/features/Items/Card/Card';
+import Header from '@/components/widgets/Header/Header';
 import * as styles from '@/styles/rootStyles.css';
 
 export default function RootPage() {
