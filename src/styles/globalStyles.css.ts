@@ -17,6 +17,8 @@ globalStyle('a', {
 
 const themeColor = createThemeContract({
   color: {
+    primary: null,
+    secondary: null,
     mainBackground: null,
     contentBackground: null,
     mainFontColor: null,
@@ -25,6 +27,8 @@ const themeColor = createThemeContract({
 
 export const lightTheme = createTheme(themeColor, {
   color: {
+    primary: '#000000',
+    secondary: '#E9E9E9',
     mainBackground: '#ffffff',
     contentBackground: '#ffffff',
     mainFontColor: '#000000',
@@ -33,6 +37,8 @@ export const lightTheme = createTheme(themeColor, {
 
 export const darkTheme = createTheme(themeColor, {
   color: {
+    primary: '#ffffff',
+    secondary: '#6A6868',
     mainBackground: '#000000',
     contentBackground: '#2c2c2c',
     mainFontColor: '#ffffff',
