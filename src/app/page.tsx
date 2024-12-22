@@ -1,4 +1,4 @@
-import Card from '@/components/Layouts/Card/Card';
+import Card from '@/components/Items/Card/Card';
 import Header from '@/components/Layouts/Header/Header';
 import Search from '@/components/Inputs/Search/Search';
 import * as styles from '@/styles/rootStyles.css';
