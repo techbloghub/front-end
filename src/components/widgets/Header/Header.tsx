@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import * as styles from './header.css';
 import { useTheme } from 'next-themes';
+import * as styles from './header.css';
 
 export default function Header() {
   const { resolvedTheme, setTheme } = useTheme();
