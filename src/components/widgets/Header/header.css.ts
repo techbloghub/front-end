@@ -24,4 +24,6 @@ export const left = style({
 export const right = style({
   display: 'flex',
   flexDirection: 'row',
+
+  cursor: 'pointer',
 });
