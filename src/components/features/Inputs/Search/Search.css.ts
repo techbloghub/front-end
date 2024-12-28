@@ -1,20 +1,18 @@
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
+  position: 'relative',
+
   display: 'flex',
   flexDirection: 'row',
   backgroundColor: '#fff',
 
   width: '30dvw',
+  height: '7dvh',
   padding: '10px 20px',
   borderRadius: '50px',
 
   cursor: 'pointer',
-});
-
-export const textInput = style({
-  outlineColor: '#fff',
-  fontSize: '16px',
 });
 
 export const glassesWrapper = style({
@@ -25,6 +23,7 @@ export const glassesWrapper = style({
 export const tagWrapper = style({
   display: 'flex',
   flexDirection: 'row',
+
   marginRight: 'auto',
 });
 
@@ -33,4 +32,44 @@ export const tagBox = style({
   borderRadius: '50px',
   backgroundColor: '#6A6868',
   marginRight: '10px',
+});
+
+export const OutExpandedWrapper = style({
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  right: '0',
+  bottom: '0',
+
+  display: 'flex',
+  justifyContent: 'center',
+
+  width: '100vw', // 100%에서 100vw로 변경
+  height: '100vh', // 100%에서 100vh로 변경
+
+  padding: '80px 54px',
+
+  zIndex: '1000',
+  backgroundColor: 'rgba(0, 0, 0, 0.65)', // 반투명 검은색으로 변경
+});
+
+export const expandedWrapper = style({
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  right: '0',
+  bottom: '0',
+
+  display: 'flex',
+  flexDirection: 'row',
+
+  width: '30dvw',
+  height: '50dvh',
+
+  backgroundColor: '#fff',
+
+  borderRadius: '25px',
+  padding: '10px 20px',
+
+  zIndex: '2000',
 });
