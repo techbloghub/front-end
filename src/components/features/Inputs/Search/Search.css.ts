@@ -24,6 +24,8 @@ export const tagWrapper = style({
   display: 'flex',
   flexDirection: 'row',
 
+  backgroundColor: 'red',
+
   marginRight: 'auto',
 });
 
@@ -31,7 +33,11 @@ export const tagBox = style({
   padding: '6px',
   borderRadius: '50px',
   backgroundColor: '#6A6868',
+
+  fontSize: '12px',
+
   marginRight: '10px',
+  marginBottom: '10px',
 });
 
 export const OutExpandedWrapper = style({
@@ -61,7 +67,7 @@ export const expandedWrapper = style({
   bottom: '0',
 
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
 
   width: '30dvw',
   height: '50dvh',
@@ -69,7 +75,46 @@ export const expandedWrapper = style({
   backgroundColor: '#fff',
 
   borderRadius: '25px',
-  padding: '10px 20px',
+  padding: '20px',
 
   zIndex: '2000',
+});
+
+export const searchInput = style({
+  width: '100%',
+  height: '16px',
+
+  marginBottom: '14px',
+
+  backgroundColor: 'transparent',
+  color: '#000',
+
+  fontSize: '14px',
+
+  border: 'none',
+  outline: 'none',
+});
+
+export const expandedTagWrapper = style({
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+
+  fontSize: '12px',
+});
+
+export const relatedTagWrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+export const relatedTagBox = style({
+  display: 'flex',
+  flexDirection: 'row',
+});
+
+export const relatedTagText = style({
+  fontSize: '12px',
+
+  color: '#000',
 });
