@@ -11,7 +11,7 @@ export default function RemoteControl() {
         className={styles.iconWrapper}
         type="button"
         aria-label="페이지 최상단으로 이동"
-        onClick={() => scrollToTop}
+        onClick={() => scrollToTop({})}
       >
         <ArrowUp />
       </button>
