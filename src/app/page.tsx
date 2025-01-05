@@ -1,3 +1,4 @@
+import RemoteControl from '@/components/features/Common/RemoteControl/RemoteControl';
 import Card from '@/components/features/Items/Card/Card';
 import Header from '@/components/widgets/Header/Header';
 import SearchToolbar from '@/components/widgets/SearchToolbar/SearchToolbar';
@@ -9,6 +10,7 @@ export default function RootPage() {
       <Header />
       <SearchToolbar />
       <Card />
+      <RemoteControl />
     </div>
   );
 }
