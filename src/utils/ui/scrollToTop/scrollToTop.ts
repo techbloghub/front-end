@@ -1,4 +1,6 @@
-export const scrollToTop = (top: number = 0, behavior: ScrollBehavior = 'smooth') => {
+import { ScrollToTopProps } from './scrollToTop.types';
+
+export const scrollToTop = ({ top = 0, behavior = 'smooth' }: ScrollToTopProps) => {
   window.scrollTo({
     top,
     behavior,
