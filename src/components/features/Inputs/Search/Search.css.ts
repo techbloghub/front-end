@@ -106,11 +106,19 @@ export const expandedTagWrapper = style({
 export const relatedTagWrapper = style({
   display: 'flex',
   flexDirection: 'column',
+
+  margin: '0',
+  padding: '0',
 });
 
 export const relatedTagBox = style({
   display: 'flex',
   flexDirection: 'row',
+  alignItems: 'center',
+
+  width: '100%',
+
+  gap: '10px',
 });
 
 export const relatedTagText = style({

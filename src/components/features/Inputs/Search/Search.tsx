@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Tag from '@/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
 
 export default function Search() {
@@ -40,9 +41,11 @@ export default function Search() {
 
             <ul className={styles.relatedTagWrapper}>
               <li className={styles.relatedTagBox}>
+                <Tag />
                 <p className={styles.relatedTagText}>관련 태그</p>
               </li>
               <li className={styles.relatedTagBox}>
+                <Tag />
                 <p className={styles.relatedTagText}>관련 태그</p>
               </li>
             </ul>
