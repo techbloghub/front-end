@@ -7,8 +7,8 @@ export const wrapper = style({
   flexDirection: 'row',
   backgroundColor: '#fff',
 
-  width: '30dvw',
-  height: '7dvh',
+  width: '27rem',
+  height: '3rem',
   padding: '10px 20px',
   borderRadius: '50px',
 
@@ -69,8 +69,8 @@ export const expandedWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '30dvw',
-  height: '50dvh',
+  width: '37rem',
+  height: '22rem',
 
   backgroundColor: '#fff',
 
