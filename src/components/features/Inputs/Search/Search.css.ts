@@ -24,8 +24,6 @@ export const tagWrapper = style({
   display: 'flex',
   flexDirection: 'row',
 
-  backgroundColor: 'red',
-
   marginRight: 'auto',
 });
 
@@ -37,7 +35,6 @@ export const tagBox = style({
   fontSize: '12px',
 
   marginRight: '10px',
-  marginBottom: '10px',
 });
 
 export const OutExpandedWrapper = style({
