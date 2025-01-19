@@ -6,7 +6,7 @@ import Tag from '@/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
 
 export default function Search() {
-  const [isExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [tagList, setTagList] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState(''); // 입력값을 저장할 state 추가
 
@@ -15,6 +15,10 @@ export default function Search() {
       setTagList((prev) => [...prev, inputValue.trim()]);
       setInputValue('');
     }
+  };
+
+  const onClickExpanded = () => {
+    setIsExpanded((prev) => !prev);
   };
 
   return (
@@ -51,13 +55,27 @@ export default function Search() {
             </ul>
           </div>
 
-          <div className={styles.OutExpandedWrapper} />
+          <div
+            className={styles.OutExpandedWrapper}
+            onClick={onClickExpanded}
+            role="button"
+            tabIndex={0}
+            aria-label="검색 축속 화면 버튼"
+            onKeyDown={handleKeyDown}
+          />
         </>
       ) : (
         <>
-          <div className={styles.tagWrapper}>
-            {new Array(3).fill('React').map((el) => (
-              <div key="test" className={styles.tagBox}>
+          <div
+            className={styles.tagWrapper}
+            onClick={onClickExpanded}
+            role="button"
+            tabIndex={0}
+            aria-label="검색 확장 버튼"
+            onKeyDown={handleKeyDown}
+          >
+            {new Array(3).fill('React').map((el, index) => (
+              <div className={styles.tagBox} key={`${index + el}`}>
                 {el}
               </div>
             ))}
