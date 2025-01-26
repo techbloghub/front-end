@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import Image from 'next/image';
 import Tag from '@/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
@@ -10,7 +10,9 @@ export default function Search() {
   const [tagList, setTagList] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState(''); // 입력값을 저장할 state 추가
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.nativeEvent.isComposing || event.keyCode === 229) return;
+
     if (event.key === 'Enter' && inputValue.trim()) {
       setTagList((prev) => [...prev, inputValue.trim()]);
       setInputValue('');
