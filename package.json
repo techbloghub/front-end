@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "start:main": "next start -p 4000",
+    "start:dev": "next start -p 5000",
     "lint": "next lint",
     "check-types": "tsc --noEmit"
   },
