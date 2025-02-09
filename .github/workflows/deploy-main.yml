@@ -1,0 +1,35 @@
+name: Deploy Stage
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Production Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/dev/front-end
+            echo "현재 remote URLs:"
+            git remote -v
+            echo "현재 브랜치:"
+            git branch
+            git reset --hard
+            git checkout main
+            git fetch --all
+            git pull origin main --force
+            echo "현재 커밋:"
+            git rev-parse HEAD
+            echo "변경된 파일:"
+            git status
+            pnpm install
+            pnpm build
+            pm2 reload techBlogHub-main-frontend --update-env
