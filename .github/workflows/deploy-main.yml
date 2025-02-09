@@ -17,6 +17,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            source ~/.bashrc
             cd /home/ubuntu/dev/front-end
             echo "현재 remote URLs:"
             git remote -v
