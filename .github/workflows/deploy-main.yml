@@ -17,6 +17,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "배포 테스트001"
             echo "=== 초기 환경 확인 ==="
             echo "Shell: $SHELL"
             echo "PATH: $PATH"
