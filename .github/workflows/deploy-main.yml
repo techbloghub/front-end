@@ -1,4 +1,4 @@
-name: Deploy Stage
+name: Deploy Main
 
 on:
   pull_request:
@@ -17,12 +17,34 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "=== 초기 환경 확인 ==="
+            echo "Shell: $SHELL"
+            echo "PATH: $PATH"
+            echo "PWD: $PWD"
+            echo "User: $(whoami)"
+
+            echo "=== NVM 환경 설정 ==="
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            echo "=== bashrc 로드 ==="
             source ~/.bashrc
+
+            echo "=== Node 환경 확인 ==="
+            echo "Node 버전: $(node -v || echo 'node not found')"
+            echo "NPM 버전: $(npm -v || echo 'npm not found')"
+            echo "PNPM 위치: $(which pnpm || echo 'pnpm not found')"
+            echo "PM2 위치: $(which pm2 || echo 'pm2 not found')"
+
             cd /home/ubuntu/dev/front-end
+            echo "=== Git 상태 확인 ==="
+            echo "현재 디렉토리: $PWD"
             echo "현재 remote URLs:"
             git remote -v
             echo "현재 브랜치:"
             git branch
+
+            echo "=== Git 작업 시작 ==="
             git reset --hard
             git checkout main
             git fetch --all
@@ -31,12 +53,19 @@ jobs:
             git rev-parse HEAD
             echo "변경된 파일:"
             git status
-             echo "캐시 및 의존성 정리"
+
+            echo "=== PNPM 캐시 정리 시작 ==="
             pnpm store prune
             pnpm clean 
-            echo "의존성 설치"
+
+            echo "=== 의존성 설치 시작 ==="
             pnpm install
-            echo "빌드 시작"
+
+            echo "=== 빌드 시작 ==="
             pnpm build
-            echo "서비스 재시작"
+
+            echo "=== PM2 상태 확인 ==="
+            pm2 list || echo "PM2 실행 실패"
+
+            echo "=== 서비스 재시작 ==="
             pm2 reload techBlogHub-main-frontend --update-env
