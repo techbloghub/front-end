@@ -17,7 +17,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo "배포 테스트001"
             echo "=== 초기 환경 확인 ==="
             echo "Shell: $SHELL"
             echo "PATH: $PATH"
@@ -49,7 +48,7 @@ jobs:
             git reset --hard
             git checkout main
             git fetch --all
-            git pull origin main --force
+            git reset --hard origin/main
             echo "현재 커밋:"
             git rev-parse HEAD
             echo "변경된 파일:"
@@ -57,7 +56,6 @@ jobs:
 
             echo "=== PNPM 캐시 정리 시작 ==="
             pnpm store prune
-            pnpm clean 
 
             echo "=== 의존성 설치 시작 ==="
             pnpm install
