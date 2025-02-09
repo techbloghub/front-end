@@ -30,6 +30,12 @@ jobs:
             git rev-parse HEAD
             echo "변경된 파일:"
             git status
+             echo "캐시 및 의존성 정리"
+            pnpm store prune
+            pnpm clean 
+            echo "의존성 설치"
             pnpm install
+            echo "빌드 시작"
             pnpm build
+            echo "서비스 재시작"
             pm2 reload techBlogHub-main-frontend --update-env
