@@ -1,30 +1,27 @@
-# 1. Node.js 환경 설정
-FROM node:20 AS builder
+FROM node:20-alpine AS builder
 
-# 2. 작업 디렉토리 설정
 WORKDIR /app
 
-# 3. corepack 및 pnpm 설치
 RUN npm install -g corepack && corepack enable && corepack prepare pnpm@latest --activate
 
-# 4. 필수 파일 복사
 COPY package.json pnpm-lock.yaml ./
-
-# 5. 의존성 설치 (pnpm 사용)
 RUN pnpm install --frozen-lockfile
 
-# 6. 소스 코드 복사 및 빌드
 COPY . .
 RUN pnpm build
 
-# 7. PM2 설치 및 상태 확인
-RUN npm install pm2 -g && pm2 --version
+# 빌드용과 실행용 분리
+FROM node:20-alpine AS runner
 
-# 8. PM2 프로세스 시작
-RUN pm2 start npm --name "techBlogHub-main-frontend" -- run start
+WORKDIR /app
 
-# 9. 4000 포트 열기
+# 프로덕션용 패키지만 복사
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+COPY package.json ./
+
+RUN npm install pm2 -g
+
 EXPOSE 4000
 
-# 10. PM2 실행
 CMD ["pm2-runtime", "start", "npm", "--name", "techBlogHub-main-frontend", "--", "start", "--", "--port", "4000"]
