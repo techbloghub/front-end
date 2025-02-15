@@ -8,7 +8,7 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN pnpm build
+RUN next build
 
 # 빌드용과 실행용 분리
 FROM node:20-alpine AS runner
