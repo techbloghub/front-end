@@ -116,10 +116,25 @@ export const relatedTagBox = style({
   width: '100%',
 
   gap: '10px',
+
+  cursor: 'pointer',
+
+  ':focus': {
+    outline: 'none',
+    backgroundColor: 'rgba(106, 104, 104, 0.1)',
+  },
+
+  ':hover': {
+    backgroundColor: 'rgba(106, 104, 104, 0.1)',
+  },
 });
 
 export const relatedTagText = style({
   fontSize: '12px',
 
   color: '#000',
+});
+
+export const focusedTag = style({
+  backgroundColor: 'rgba(106, 104, 104, 0.1)',
 });
