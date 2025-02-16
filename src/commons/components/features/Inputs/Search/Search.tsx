@@ -39,26 +39,48 @@ export default function Search() {
 
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      setFocusedIndex((prev) => (prev < relatedTags.length - 1 ? prev + 1 : prev));
+      setFocusedIndex((prev) => {
+        if (prev === -1) return 0;
+        return Math.min(prev + 1, relatedTags.length - 1);
+      });
       return;
     }
 
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-      setFocusedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+      setFocusedIndex((prev) => {
+        const next = prev > 0 ? prev - 1 : -1;
+        return next;
+      });
       return;
     }
 
     if (event.key === 'Enter') {
       event.preventDefault();
-      if (focusedIndex >= 0) {
+
+      if (focusedIndex >= 0 && relatedTags[focusedIndex]) {
         const selectedTag = relatedTags[focusedIndex].name;
-        setTagList((prev) => [...prev, selectedTag]);
+
+        setTagList((prev) => {
+          if (prev.includes(selectedTag)) {
+            return prev;
+          }
+          return [...prev, selectedTag];
+        });
+
         setInputValue('');
         setRelatedTags([]);
         setFocusedIndex(-1);
       } else if (inputValue.trim()) {
-        setTagList((prev) => [...prev, inputValue.trim()]);
+        const newTag = inputValue.trim();
+
+        setTagList((prev) => {
+          if (prev.includes(newTag)) {
+            return prev;
+          }
+          return [...prev, newTag];
+        });
+
         setInputValue('');
         setRelatedTags([]);
       }
@@ -83,7 +105,7 @@ export default function Search() {
   };
 
   return (
-    <div className={styles.wrapper} role="button" tabIndex={0} onClick={onClickExpanded} onKeyDown={handleKeyDown}>
+    <div className={styles.wrapper} role="button" tabIndex={0} onClick={onClickExpanded}>
       {isExpanded ? (
         <>
           <div className={styles.expandedWrapper}>
