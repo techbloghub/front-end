@@ -1,4 +1,4 @@
-import ThemeProvider from '@/providers/ThemeProvider/ThemeProvider';
+import ThemeProvider from '@/commons/providers/ThemeProvider/ThemeProvider.tsx';
 import '../styles/globalStyles.css.ts';
 import { Metadata } from 'next';
 
