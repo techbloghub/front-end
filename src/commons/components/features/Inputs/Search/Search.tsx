@@ -4,9 +4,8 @@ import { KeyboardEvent, useEffect, useState } from 'react';
 import * as styles from './Search.css';
 import { getTags } from '@/domains/tag/api/tags.api';
 import type { TagType } from '@/domains/tag/tpyes/tag.type';
-import { TagList } from '../../Lists/TagList/TagList';
-import { RelatedTags } from '../../Lists/RelatedTags/RelatedTags';
 import { CollapsedSearch } from '../CollapsedSearch/CollapsedSearch';
+import { ExpandedSearch } from '../ExpandedSearch/ExpandedSearch';
 
 export default function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -107,32 +106,16 @@ export default function Search() {
   return (
     <div className={styles.wrapper} role="button" tabIndex={0} onClick={onClickExpanded}>
       {isExpanded ? (
-        <>
-          <div className={styles.expandedWrapper}>
-            <input
-              className={styles.searchInput}
-              type="text"
-              placeholder="검색어를 입력하세요"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-              autoFocus
-            />
-
-            <TagList tags={tagList} />
-
-            <RelatedTags relatedTags={relatedTags} focusedIndex={focusedIndex} onClickRelatedTag={onClickRelatedTag} />
-          </div>
-
-          <div
-            className={styles.OutExpandedWrapper}
-            onClick={onClickExpanded}
-            role="button"
-            tabIndex={0}
-            aria-label="검색 축소 화면 버튼"
-            onKeyDown={handleKeyDown}
-          />
-        </>
+        <ExpandedSearch
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          handleKeyDown={handleKeyDown}
+          tagList={tagList}
+          relatedTags={relatedTags}
+          focusedIndex={focusedIndex}
+          onClickRelatedTag={onClickRelatedTag}
+          onClickExpanded={onClickExpanded}
+        />
       ) : (
         <CollapsedSearch tagList={tagList} handleKeyDown={handleKeyDown} />
       )}
