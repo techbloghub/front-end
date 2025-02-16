@@ -6,7 +6,7 @@ import Tag from '@/commons/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
 import { getTags } from '@/domains/tag/api/tags.api';
 import type { TagType } from '@/domains/tag/tpyes/tag.type';
-import { TagBox } from '@/commons/components/atoms/boxes/tagBox/tagBox';
+import { TagList } from '../../Lists/TagList/TagList';
 
 export default function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -76,7 +76,7 @@ export default function Search() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} role="button" tabIndex={0} onClick={onClickExpanded} onKeyDown={handleKeyDown}>
       {isExpanded ? (
         <>
           <div className={styles.expandedWrapper}>
@@ -90,11 +90,7 @@ export default function Search() {
               autoFocus
             />
 
-            <div className={styles.expandedTagWrapper}>
-              {tagList.map((el) => (
-                <TagBox key={el} />
-              ))}
-            </div>
+            <TagList tags={tagList} />
 
             <ul className={styles.relatedTagWrapper}>
               {relatedTags.map((tag, index) => (
@@ -131,15 +127,15 @@ export default function Search() {
         <>
           <div
             className={styles.tagWrapper}
-            onClick={onClickExpanded}
             role="button"
             tabIndex={0}
             aria-label="검색 확장 버튼"
             onKeyDown={handleKeyDown}
           >
-            {new Array(3).fill('React').map((el, index) => (
-              <TagBox key={`${index + el}`} />
-            ))}
+            <TagList tags={tagList} />
+            {/* {new Array(3).fill('React').map((el, index) => (
+              <TagBox key={`${index + el}`} tagName={el} />
+            ))} */}
           </div>
           <div className={styles.glassesWrapper}>
             <Image src="/images/buttons/readingGlasses.png" alt="ReadingGlasses" width={22} height={30} />
