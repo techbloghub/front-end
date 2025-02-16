@@ -1,5 +1,5 @@
 import * as styles from './tagBox.css';
 
-export function TagBox() {
-  return <div className={styles.tagBox}>TagBox</div>;
+export function TagBox({ tagName }: { tagName: string }) {
+  return <div className={styles.tagBox}>{tagName}</div>;
 }
