@@ -1,9 +1,3 @@
-interface ResponseData<T> {
-  code: string;
-  isSuccess: boolean;
-  result: T;
-}
-
 type FetchOptions = RequestInit & {
   params?: Record<string, string>;
   revalidate?: number | false;
@@ -58,7 +52,7 @@ const createFetchInstance = (baseUrl: string) => {
 export const fetchApi = createFetchInstance(baseURL);
 
 const createApiMethods = (instance: (url: string, options?: FetchOptions) => Promise<any>) => ({
-  Get: async <T>(url: string, params = {}, options: { revalidate?: number | false } = {}): Promise<ResponseData<T>> => {
+  Get: async <T>(url: string, params = {}, options: { revalidate?: number | false } = {}): Promise<T> => {
     try {
       return await instance(url, {
         method: 'GET',
@@ -70,7 +64,7 @@ const createApiMethods = (instance: (url: string, options?: FetchOptions) => Pro
     }
   },
 
-  Post: async <T, D = unknown>(url: string, data?: D, options = {}): Promise<ResponseData<T>> => {
+  Post: async <T, D = unknown>(url: string, data?: D, options = {}): Promise<T> => {
     try {
       return await instance(url, {
         method: 'POST',
@@ -83,7 +77,7 @@ const createApiMethods = (instance: (url: string, options?: FetchOptions) => Pro
     }
   },
 
-  Put: async <T, D = unknown>(url: string, data?: D, options = {}): Promise<ResponseData<T>> => {
+  Put: async <T, D = unknown>(url: string, data?: D, options = {}): Promise<T> => {
     try {
       return await instance(url, {
         method: 'PUT',
@@ -96,7 +90,7 @@ const createApiMethods = (instance: (url: string, options?: FetchOptions) => Pro
     }
   },
 
-  Delete: async <T>(url: string, options = {}): Promise<ResponseData<T>> => {
+  Delete: async <T>(url: string, options = {}): Promise<T> => {
     try {
       return await instance(url, {
         method: 'DELETE',
@@ -108,7 +102,7 @@ const createApiMethods = (instance: (url: string, options?: FetchOptions) => Pro
     }
   },
 
-  Patch: async <T, D = unknown>(url: string, data?: D, options = {}): Promise<ResponseData<T>> => {
+  Patch: async <T, D = unknown>(url: string, data?: D, options = {}): Promise<T> => {
     try {
       return await instance(url, {
         method: 'PATCH',
