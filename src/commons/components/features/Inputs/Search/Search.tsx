@@ -104,7 +104,7 @@ export default function Search() {
   };
 
   return (
-    <div className={styles.wrapper} role="button" tabIndex={0} onClick={onClickExpanded}>
+    <div className={styles.wrapper} role="button" tabIndex={0} onClick={isExpanded ? undefined : onClickExpanded}>
       {isExpanded ? (
         <ExpandedSearch
           inputValue={inputValue}
