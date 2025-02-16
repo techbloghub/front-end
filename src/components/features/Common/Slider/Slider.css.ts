@@ -1,4 +1,4 @@
-import { vars } from '@/styles/globalStyles.css';
+import { vars } from '@/commons/styles/globalStyles.css';
 import { keyframes, style } from '@vanilla-extract/css';
 
 export const wrapper = style({

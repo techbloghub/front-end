@@ -1,5 +1,5 @@
 import ThemeProvider from '@/commons/providers/ThemeProvider/ThemeProvider.tsx';
-import '../styles/globalStyles.css.ts';
+import '../commons/styles/globalStyles.css.ts';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
