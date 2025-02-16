@@ -133,9 +133,6 @@ export default function Search() {
             onKeyDown={handleKeyDown}
           >
             <TagList tags={tagList} />
-            {/* {new Array(3).fill('React').map((el, index) => (
-              <TagBox key={`${index + el}`} tagName={el} />
-            ))} */}
           </div>
           <div className={styles.glassesWrapper}>
             <Image src="/images/buttons/readingGlasses.png" alt="ReadingGlasses" width={22} height={30} />
