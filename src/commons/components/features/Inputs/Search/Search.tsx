@@ -2,11 +2,11 @@
 
 import { KeyboardEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
-import Tag from '@/commons/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
 import { getTags } from '@/domains/tag/api/tags.api';
 import type { TagType } from '@/domains/tag/tpyes/tag.type';
 import { TagList } from '../../Lists/TagList/TagList';
+import { RelatedTags } from '../../Lists/RelatedTags/RelatedTags';
 
 export default function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -75,6 +75,13 @@ export default function Search() {
     setIsExpanded((prev) => !prev);
   };
 
+  const onClickRelatedTag = (tag: TagType) => {
+    setTagList((prev) => [...prev, tag.name]);
+    setInputValue('');
+    setRelatedTags([]);
+    setFocusedIndex(-1);
+  };
+
   return (
     <div className={styles.wrapper} role="button" tabIndex={0} onClick={onClickExpanded} onKeyDown={handleKeyDown}>
       {isExpanded ? (
@@ -92,26 +99,7 @@ export default function Search() {
 
             <TagList tags={tagList} />
 
-            <ul className={styles.relatedTagWrapper}>
-              {relatedTags.map((tag, index) => (
-                <li
-                  key={tag.id}
-                  className={`${styles.relatedTagBox} ${index === focusedIndex ? styles.focusedTag : ''}`}
-                  onClick={() => {
-                    setTagList((prev) => [...prev, tag.name]);
-                    setInputValue('');
-                    setRelatedTags([]);
-                    setFocusedIndex(-1);
-                  }}
-                  tabIndex={0}
-                  role="option"
-                  aria-selected={index === focusedIndex}
-                >
-                  <Tag />
-                  <p className={styles.relatedTagText}>{tag.name}</p>
-                </li>
-              ))}
-            </ul>
+            <RelatedTags relatedTags={relatedTags} focusedIndex={focusedIndex} onClickRelatedTag={onClickRelatedTag} />
           </div>
 
           <div
