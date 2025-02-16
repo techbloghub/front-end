@@ -6,6 +6,7 @@ import Tag from '@/commons/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
 import { getTags } from '@/domains/tag/api/tags.api';
 import type { TagType } from '@/domains/tag/tpyes/tag.type';
+import { TagBox } from '@/commons/components/atoms/boxes/tagBox/tagBox';
 
 export default function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -91,9 +92,7 @@ export default function Search() {
 
             <div className={styles.expandedTagWrapper}>
               {tagList.map((el) => (
-                <div key={el} className={styles.tagBox}>
-                  {el}
-                </div>
+                <TagBox key={el} />
               ))}
             </div>
 
@@ -139,9 +138,7 @@ export default function Search() {
             onKeyDown={handleKeyDown}
           >
             {new Array(3).fill('React').map((el, index) => (
-              <div className={styles.tagBox} key={`${index + el}`}>
-                {el}
-              </div>
+              <TagBox key={`${index + el}`} />
             ))}
           </div>
           <div className={styles.glassesWrapper}>
