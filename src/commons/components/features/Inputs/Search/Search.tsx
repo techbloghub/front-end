@@ -1,12 +1,12 @@
 'use client';
 
 import { KeyboardEvent, useEffect, useState } from 'react';
-import Image from 'next/image';
 import * as styles from './Search.css';
 import { getTags } from '@/domains/tag/api/tags.api';
 import type { TagType } from '@/domains/tag/tpyes/tag.type';
 import { TagList } from '../../Lists/TagList/TagList';
 import { RelatedTags } from '../../Lists/RelatedTags/RelatedTags';
+import { CollapsedSearch } from '../CollapsedSearch/CollapsedSearch';
 
 export default function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -134,18 +134,7 @@ export default function Search() {
           />
         </>
       ) : (
-        <>
-          <div
-            className={styles.tagWrapper}
-            role="button"
-            tabIndex={0}
-            aria-label="검색 확장 버튼"
-            onKeyDown={handleKeyDown}
-          >
-            <TagList tags={tagList} />
-          </div>
-          <Image src="/images/buttons/readingGlasses.png" alt="ReadingGlasses" width={22} height={30} />
-        </>
+        <CollapsedSearch tagList={tagList} handleKeyDown={handleKeyDown} />
       )}
     </div>
   );
