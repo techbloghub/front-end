@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import ThemeIcon from '@/components/features/Common/ThemeIcon/ThemeIcon';
+import ThemeIcon from '@/commons/components/features/Common/ThemeIcon/ThemeIcon';
 import { useTheme } from 'next-themes';
 import * as styles from './header.css';
 

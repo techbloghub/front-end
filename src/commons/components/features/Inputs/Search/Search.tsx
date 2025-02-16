@@ -2,7 +2,7 @@
 
 import { KeyboardEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
-import Tag from '@/components/atoms/Icons/Tag/Tag';
+import Tag from '@/commons/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
 import { getTags } from '@/domains/tag/api/tags.api';
 import type { TagType } from '@/domains/tag/tpyes/tag.type';

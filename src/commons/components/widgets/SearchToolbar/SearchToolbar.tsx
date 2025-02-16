@@ -1,5 +1,5 @@
-import Slider from '@/components/features/Common/Slider/Slider';
-import Search from '@/components/features/Inputs/Search/Search';
+import Slider from '@/commons/components/features/Common/Slider/Slider';
+import Search from '@/commons/components/features/Inputs/Search/Search';
 import * as styles from './SearchToolbar.css';
 
 export default function SearchToolbar() {

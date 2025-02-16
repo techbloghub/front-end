@@ -1,5 +1,5 @@
-import Moon from '@/components/atoms/Icons/Moon/Moon';
-import Sun from '@/components/atoms/Icons/Sun/Sun';
+import Moon from '@/commons/components/atoms/Icons/Moon/Moon';
+import Sun from '@/commons/components/atoms/Icons/Sun/Sun';
 import { Theme } from '@/commons/types/theme';
 import { ThemeIconProps } from './ThemeIcon.types';
 
