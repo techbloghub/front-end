@@ -1,21 +1,72 @@
 'use client';
 
-import { KeyboardEvent, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Tag from '@/components/atoms/Icons/Tag/Tag';
 import * as styles from './Search.css';
+import { getTags } from '@/domains/tag/api/tags.api';
+import type { TagType } from '@/domains/tag/tpyes/tag.type';
 
 export default function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [tagList, setTagList] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState(''); // 입력값을 저장할 state 추가
+  const [inputValue, setInputValue] = useState('');
+  const [relatedTags, setRelatedTags] = useState<TagType[]>([]);
+  const [focusedIndex, setFocusedIndex] = useState<number>(-1);
+
+  useEffect(() => {
+    const searchTags = async () => {
+      if (inputValue.trim().length > 0) {
+        try {
+          const response = await getTags(inputValue);
+          setRelatedTags(response.tags);
+        } catch (error) {
+          console.error('태그 검색 실패:', error);
+          setRelatedTags([]);
+        }
+      } else {
+        setRelatedTags([]);
+      }
+    };
+
+    const timer = setTimeout(searchTags, 300);
+    return () => clearTimeout(timer);
+  }, [inputValue]);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.nativeEvent.isComposing || event.keyCode === 229) return;
 
-    if (event.key === 'Enter' && inputValue.trim()) {
-      setTagList((prev) => [...prev, inputValue.trim()]);
-      setInputValue('');
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setFocusedIndex((prev) => (prev < relatedTags.length - 1 ? prev + 1 : prev));
+      return;
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setFocusedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+      return;
+    }
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (focusedIndex >= 0) {
+        const selectedTag = relatedTags[focusedIndex].name;
+        setTagList((prev) => [...prev, selectedTag]);
+        setInputValue('');
+        setRelatedTags([]);
+        setFocusedIndex(-1);
+      } else if (inputValue.trim()) {
+        setTagList((prev) => [...prev, inputValue.trim()]);
+        setInputValue('');
+        setRelatedTags([]);
+      }
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      setIsExpanded(false);
+      setFocusedIndex(-1);
     }
   };
 
@@ -35,6 +86,7 @@ export default function Search() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
+              autoFocus
             />
 
             <div className={styles.expandedTagWrapper}>
@@ -46,14 +98,24 @@ export default function Search() {
             </div>
 
             <ul className={styles.relatedTagWrapper}>
-              <li className={styles.relatedTagBox}>
-                <Tag />
-                <p className={styles.relatedTagText}>관련 태그</p>
-              </li>
-              <li className={styles.relatedTagBox}>
-                <Tag />
-                <p className={styles.relatedTagText}>관련 태그</p>
-              </li>
+              {relatedTags.map((tag, index) => (
+                <li
+                  key={tag.id}
+                  className={`${styles.relatedTagBox} ${index === focusedIndex ? styles.focusedTag : ''}`}
+                  onClick={() => {
+                    setTagList((prev) => [...prev, tag.name]);
+                    setInputValue('');
+                    setRelatedTags([]);
+                    setFocusedIndex(-1);
+                  }}
+                  tabIndex={0}
+                  role="option"
+                  aria-selected={index === focusedIndex}
+                >
+                  <Tag />
+                  <p className={styles.relatedTagText}>{tag.name}</p>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -62,7 +124,7 @@ export default function Search() {
             onClick={onClickExpanded}
             role="button"
             tabIndex={0}
-            aria-label="검색 축속 화면 버튼"
+            aria-label="검색 축소 화면 버튼"
             onKeyDown={handleKeyDown}
           />
         </>
