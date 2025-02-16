@@ -1,6 +1,6 @@
 'use client';
 
-import ArrowUp from '@/components/atoms/Icons/ArrowUp/ArrowUp';
+import ArrowUp from '@/commons/components/atoms/Icons/ArrowUp/ArrowUp';
 import { scrollToTop } from '@/commons/utils/ui/scrollToTop/scrollToTop';
 import * as styles from './RemoteControl.css';
 
