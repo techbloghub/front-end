@@ -1,6 +1,6 @@
 'use client';
 
-import { darkTheme, lightTheme } from '@/styles/globalStyles.css';
+import { darkTheme, lightTheme } from '@/commons/styles/globalStyles.css';
 import { ThemeProvider } from 'next-themes';
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
