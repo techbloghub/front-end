@@ -122,9 +122,7 @@ export default function Search() {
           >
             <TagList tags={tagList} />
           </div>
-          <div className={styles.glassesWrapper}>
-            <Image src="/images/buttons/readingGlasses.png" alt="ReadingGlasses" width={22} height={30} />
-          </div>
+          <Image src="/images/buttons/readingGlasses.png" alt="ReadingGlasses" width={22} height={30} />
         </>
       )}
     </div>
