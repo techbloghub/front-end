@@ -1,3 +1,4 @@
+import { vars } from '@/commons/styles/globalStyles.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -13,6 +14,8 @@ export const wrapper = style({
 
 export const title = style({
   fontSize: '35px',
+
+  color: `${vars.themeColor.color.mainFontColor}`,
 });
 
 export const left = style({

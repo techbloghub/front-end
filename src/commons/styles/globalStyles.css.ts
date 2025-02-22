@@ -22,6 +22,10 @@ const themeColor = createThemeContract({
     mainBackground: null,
     contentBackground: null,
     mainFontColor: null,
+    secondaryFontColor: null,
+    searchBarBackground: null,
+    cardBackground: null,
+    tagIconBackground: null,
   },
 });
 
@@ -32,6 +36,10 @@ export const lightTheme = createTheme(themeColor, {
     mainBackground: '#ffffff',
     contentBackground: '#ffffff',
     mainFontColor: '#000000',
+    secondaryFontColor: '#ffffff',
+    searchBarBackground: '#E9E9E9',
+    cardBackground: '#E9E9E9',
+    tagIconBackground: '#ffffff',
   },
 });
 
@@ -42,6 +50,10 @@ export const darkTheme = createTheme(themeColor, {
     mainBackground: '#000000',
     contentBackground: '#2c2c2c',
     mainFontColor: '#ffffff',
+    secondaryFontColor: '#000000',
+    searchBarBackground: '#ffffff',
+    cardBackground: '#6A6868',
+    tagIconBackground: '#343330',
   },
 });
 

@@ -1,3 +1,4 @@
+import { vars } from '@/commons/styles/globalStyles.css';
 import { style } from '@vanilla-extract/css';
 
 export const OutExpandedWrapper = style({
@@ -34,7 +35,7 @@ export const expandedWrapper = style({
   width: '37rem',
   height: 'fit-content',
 
-  backgroundColor: '#fff',
+  backgroundColor: `${vars.themeColor.color.searchBarBackground}`,
 
   borderRadius: '25px',
   padding: '20px',
@@ -49,7 +50,7 @@ export const searchInput = style({
   marginBottom: '14px',
 
   backgroundColor: 'transparent',
-  color: '#000',
+  color: '#000000',
 
   fontSize: '14px',
 

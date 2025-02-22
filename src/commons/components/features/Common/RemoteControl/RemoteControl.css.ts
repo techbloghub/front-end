@@ -1,3 +1,4 @@
+import { vars } from '@/commons/styles/globalStyles.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -24,5 +25,5 @@ export const iconWrapper = style({
   border: 'none',
   cursor: 'pointer',
 
-  backgroundColor: '#6A6868',
+  backgroundColor: `${vars.themeColor.color.secondary}`,
 });
