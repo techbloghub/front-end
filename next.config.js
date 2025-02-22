@@ -8,10 +8,11 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   async rewrites() {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080';
     return [
       {
         source: '/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+        destination: `${apiUrl}/:path*`,
       },
     ];
   },
