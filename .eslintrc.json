@@ -23,6 +23,7 @@
     "import/order": "off",
     "no-console": "off",
     "react/function-component-definition": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "jsx-a11y/no-autofocus": "off"
   }
 }
