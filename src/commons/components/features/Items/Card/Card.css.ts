@@ -1,3 +1,4 @@
+import { vars } from '@/commons/styles/globalStyles.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -18,7 +19,7 @@ export const cardWrapper = style({
   height: '320px',
   borderRadius: '12px',
 
-  backgroundColor: '#6A6868',
+  backgroundColor: `${vars.themeColor.color.secondary}`,
 
   transition: 'transform 0.5s ease-in-out',
   cursor: 'pointer',

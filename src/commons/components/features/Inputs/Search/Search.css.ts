@@ -1,3 +1,4 @@
+import { vars } from '@/commons/styles/globalStyles.css';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -5,7 +6,7 @@ export const wrapper = style({
 
   display: 'flex',
   flexDirection: 'row',
-  backgroundColor: '#fff',
+  backgroundColor: `${vars.themeColor.color.searchBarBackground}`,
 
   width: '27rem',
   height: '3rem',
