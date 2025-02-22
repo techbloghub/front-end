@@ -1,42 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-export const wrapper = style({
-  position: 'relative',
-
-  display: 'flex',
-  flexDirection: 'row',
-  backgroundColor: '#fff',
-
-  width: '27rem',
-  height: '3rem',
-  padding: '10px 20px',
-  borderRadius: '50px',
-
-  cursor: 'pointer',
-});
-
-export const glassesWrapper = style({
-  display: 'flex',
-  flexDirection: 'row',
-});
-
-export const tagWrapper = style({
-  display: 'flex',
-  flexDirection: 'row',
-
-  marginRight: 'auto',
-});
-
-export const tagBox = style({
-  padding: '6px',
-  borderRadius: '50px',
-  backgroundColor: '#6A6868',
-
-  fontSize: '12px',
-
-  marginRight: '10px',
-});
-
 export const OutExpandedWrapper = style({
   position: 'fixed',
   top: '0',
@@ -47,13 +10,15 @@ export const OutExpandedWrapper = style({
   display: 'flex',
   justifyContent: 'center',
 
-  width: '100vw', // 100%에서 100vw로 변경
-  height: '100vh', // 100%에서 100vh로 변경
+  width: '100vw',
+  height: '100vh',
 
   padding: '80px 54px',
 
   zIndex: '1000',
-  backgroundColor: 'rgba(0, 0, 0, 0.65)', // 반투명 검은색으로 변경
+  // backgroundColor: 'rgba(0, 0, 0, 0.65)',
+
+  backdropFilter: 'blur(10px)',
 });
 
 export const expandedWrapper = style({
@@ -67,7 +32,7 @@ export const expandedWrapper = style({
   flexDirection: 'column',
 
   width: '37rem',
-  height: '22rem',
+  height: 'fit-content',
 
   backgroundColor: '#fff',
 
@@ -90,51 +55,4 @@ export const searchInput = style({
 
   border: 'none',
   outline: 'none',
-});
-
-export const expandedTagWrapper = style({
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-
-  fontSize: '12px',
-});
-
-export const relatedTagWrapper = style({
-  display: 'flex',
-  flexDirection: 'column',
-
-  margin: '0',
-  padding: '0',
-});
-
-export const relatedTagBox = style({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-
-  width: '100%',
-
-  gap: '10px',
-
-  cursor: 'pointer',
-
-  ':focus': {
-    outline: 'none',
-    backgroundColor: 'rgba(106, 104, 104, 0.1)',
-  },
-
-  ':hover': {
-    backgroundColor: 'rgba(106, 104, 104, 0.1)',
-  },
-});
-
-export const relatedTagText = style({
-  fontSize: '12px',
-
-  color: '#000',
-});
-
-export const focusedTag = style({
-  backgroundColor: 'rgba(106, 104, 104, 0.1)',
 });
