@@ -1,4 +1,5 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const OutExpandedWrapper = style({
@@ -33,6 +34,11 @@ export const expandedWrapper = style({
 
   width: '27rem',
   height: 'fit-content',
+
+  ...mediaQueries({
+    tablet: { width: '20rem' },
+    mobile: { width: '15rem' },
+  }),
 
   backgroundColor: `${vars.themeColor.color.searchBarBackground}`,
 
