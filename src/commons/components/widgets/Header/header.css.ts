@@ -10,10 +10,11 @@ export const wrapper = style({
 
   width: '100dvw',
   height: '80px',
-  maxWidth: '1200px',
+  maxWidth: '1740px',
+
+  padding: '0 20px',
 
   ...mediaQueries({
-    tablet: { padding: '0 20px' },
     mobile: { padding: '0 10px' },
   }),
 });
