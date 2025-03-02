@@ -38,24 +38,7 @@ export const bottomWrapper = style({
   flexDirection: 'column',
   flex: 1,
 
-  padding: '20px',
-});
-
-export const tagWrapper = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-
-  gap: '10px',
-});
-
-export const tag = style({
-  padding: '4px 8px',
-
-  borderRadius: '50px',
-  fontSize: '12px',
-
-  backgroundColor: '#fff',
-  color: '#000',
+  padding: '6px 12px 12px',
 });
 
 export const title = style({

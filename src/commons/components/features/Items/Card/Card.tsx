@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import * as styles from './Card.css';
+import { TagList } from '../../Lists/TagList/TagList';
 
 const data = Array.from({ length: 20 }, (_, index) => ({
   id: index,
@@ -16,13 +17,7 @@ export default function Card() {
         <article key={item.id} className={styles.cardWrapper}>
           <Image src="/images/example/image1.png" alt="card" width={250} height={130} />
           <div className={styles.bottomWrapper}>
-            <div className={styles.tagWrapper}>
-              {item.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <TagList tags={item.tags} />
             <h2 className={styles.title}>{item.title}</h2>
             <footer className={styles.infoWrapper}>
               <div className={styles.textWrapper}>
