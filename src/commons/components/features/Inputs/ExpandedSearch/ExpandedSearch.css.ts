@@ -1,4 +1,5 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const OutExpandedWrapper = style({
@@ -17,7 +18,6 @@ export const OutExpandedWrapper = style({
   padding: '80px 54px',
 
   zIndex: '1000',
-  // backgroundColor: 'rgba(0, 0, 0, 0.65)',
 
   backdropFilter: 'blur(10px)',
 });
@@ -32,8 +32,13 @@ export const expandedWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '37rem',
+  width: '27rem',
   height: 'fit-content',
+
+  ...mediaQueries({
+    tablet: { width: '20rem' },
+    mobile: { width: '15rem' },
+  }),
 
   backgroundColor: `${vars.themeColor.color.searchBarBackground}`,
 

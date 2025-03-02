@@ -8,6 +8,8 @@ export const wrapper = style({
 
   flex: 1,
   height: '100%',
+
+  zIndex: 1000,
 });
 
 export const Bar = style({

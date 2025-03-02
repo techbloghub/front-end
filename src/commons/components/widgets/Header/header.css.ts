@@ -1,4 +1,5 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -10,12 +11,22 @@ export const wrapper = style({
   width: '100dvw',
   height: '80px',
   maxWidth: '1200px',
+
+  ...mediaQueries({
+    tablet: { padding: '0 20px' },
+    mobile: { padding: '0 10px' },
+  }),
 });
 
 export const title = style({
   fontSize: '35px',
 
   color: `${vars.themeColor.color.mainFontColor}`,
+
+  ...mediaQueries({
+    mobile: { fontSize: '16px' },
+    tablet: { fontSize: '24px' },
+  }),
 });
 
 export const left = style({
