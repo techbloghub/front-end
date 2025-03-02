@@ -32,13 +32,13 @@ const themeColor = createThemeContract({
 export const lightTheme = createTheme(themeColor, {
   color: {
     primary: '#000000',
-    secondary: '#E9E9E9',
+    secondary: '#d9d9d9',
     mainBackground: '#ffffff',
     contentBackground: '#ffffff',
     mainFontColor: '#000000',
     secondaryFontColor: '#ffffff',
-    searchBarBackground: '#E9E9E9',
-    cardBackground: '#E9E9E9',
+    searchBarBackground: '#d9d9d9',
+    cardBackground: '#d9d9d9',
     tagIconBackground: '#ffffff',
   },
 });

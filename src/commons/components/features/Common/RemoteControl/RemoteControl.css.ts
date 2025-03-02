@@ -1,10 +1,16 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
   position: 'fixed',
   bottom: '100px',
   right: '60px',
+
+  ...mediaQueries({
+    tablet: { right: '20px', bottom: '40px' },
+    mobile: { right: '10px', bottom: '20px' },
+  }),
 
   display: 'flex',
   flexDirection: 'column',

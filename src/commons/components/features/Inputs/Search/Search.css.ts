@@ -1,4 +1,5 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
@@ -14,4 +15,9 @@ export const wrapper = style({
   borderRadius: '50px',
 
   cursor: 'pointer',
+
+  ...mediaQueries({
+    tablet: { width: '20rem' },
+    mobile: { width: '15rem' },
+  }),
 });

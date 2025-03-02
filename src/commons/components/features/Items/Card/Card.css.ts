@@ -1,23 +1,52 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
 
   marginTop: '60px',
   maxWidth: '1200px',
+
   gap: '30px',
+
+  ...mediaQueries({
+    tabletLarge: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    tablet: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    tabletSmall: {
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
+    mobile: {
+      gridTemplateColumns: '1fr',
+    },
+  }),
 });
 
 export const cardWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '250px',
-  height: '320px',
+  width: '15.6rem',
+  height: '19.9rem',
   borderRadius: '12px',
+
+  overflow: 'hidden',
+
+  ...mediaQueries({
+    tablet: {
+      width: '20rem',
+      height: '19.9rem',
+    },
+    mobile: {
+      width: '100%',
+      height: '19.9rem',
+    },
+  }),
 
   backgroundColor: `${vars.themeColor.color.secondary}`,
 
@@ -26,6 +55,12 @@ export const cardWrapper = style({
   ':hover': {
     transform: 'translateY(-8px)',
   },
+});
+
+export const imageWrapper = style({
+  position: 'relative',
+  width: '100%',
+  height: '130px',
 });
 
 export const cardImageWrapper = style({
@@ -38,24 +73,7 @@ export const bottomWrapper = style({
   flexDirection: 'column',
   flex: 1,
 
-  padding: '20px',
-});
-
-export const tagWrapper = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-
-  gap: '10px',
-});
-
-export const tag = style({
-  padding: '4px 8px',
-
-  borderRadius: '50px',
-  fontSize: '12px',
-
-  backgroundColor: '#fff',
-  color: '#000',
+  padding: '6px 12px 12px',
 });
 
 export const title = style({
