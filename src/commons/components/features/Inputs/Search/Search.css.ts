@@ -9,7 +9,7 @@ export const wrapper = style({
   flexDirection: 'row',
   backgroundColor: `${vars.themeColor.color.searchBarBackground}`,
 
-  width: '27rem',
+  width: '38rem',
   height: '3rem',
   padding: '10px 20px',
   borderRadius: '50px',
