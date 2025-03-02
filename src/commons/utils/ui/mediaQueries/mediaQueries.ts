@@ -3,8 +3,12 @@ import { StyleRule } from '@vanilla-extract/css';
 type BreakpointKey = keyof typeof breakpoints;
 
 export const breakpoints = {
+  mobileSmall: 480,
   mobile: 768,
+  mobileLarge: 896,
+  tabletSmall: 960,
   tablet: 1024,
+  tabletLarge: 1148,
   desktop: 1280,
 };
 
