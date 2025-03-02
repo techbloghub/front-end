@@ -4,11 +4,12 @@ import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(15.6rem, 1fr))',
-  gap: '30px',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+
   marginTop: '60px',
   maxWidth: '1200px',
-  backgroundColor: 'red',
+
+  gap: '30px',
 
   ...mediaQueries({
     tabletLarge: {
@@ -34,6 +35,19 @@ export const cardWrapper = style({
   height: '19.9rem',
   borderRadius: '12px',
 
+  overflow: 'hidden',
+
+  ...mediaQueries({
+    tablet: {
+      width: '20rem',
+      height: '19.9rem',
+    },
+    mobile: {
+      width: '100%',
+      height: '19.9rem',
+    },
+  }),
+
   backgroundColor: `${vars.themeColor.color.secondary}`,
 
   transition: 'transform 0.5s ease-in-out',
@@ -41,6 +55,12 @@ export const cardWrapper = style({
   ':hover': {
     transform: 'translateY(-8px)',
   },
+});
+
+export const imageWrapper = style({
+  position: 'relative',
+  width: '100%',
+  height: '130px',
 });
 
 export const cardImageWrapper = style({

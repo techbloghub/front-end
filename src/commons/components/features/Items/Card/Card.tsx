@@ -2,7 +2,7 @@ import Image from 'next/image';
 import * as styles from './Card.css';
 import { TagList } from '../../Lists/TagList/TagList';
 
-const data = Array.from({ length: 20 }, (_, index) => ({
+const data = Array.from({ length: 22 }, (_, index) => ({
   id: index,
   title: '이벤트 루프는 무엇인가..? 넌 알고 있었니?',
   tags: ['react', 'type', 'next.js', 'javascript', '리액트'],
@@ -15,7 +15,9 @@ export default function Card() {
     <section className={styles.wrapper}>
       {data.map((item) => (
         <article key={item.id} className={styles.cardWrapper}>
-          <Image src="/images/example/image1.png" alt="card" width={250} height={130} />
+          <div className={styles.imageWrapper}>
+            <Image src="/images/example/image1.png" alt="card" layout="fill" objectFit="cover" />
+          </div>
           <div className={styles.bottomWrapper}>
             <TagList tags={item.tags} />
             <h2 className={styles.title}>{item.title}</h2>
