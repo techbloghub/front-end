@@ -17,7 +17,6 @@ export const OutExpandedWrapper = style({
   padding: '80px 54px',
 
   zIndex: '1000',
-  // backgroundColor: 'rgba(0, 0, 0, 0.65)',
 
   backdropFilter: 'blur(10px)',
 });
@@ -32,7 +31,7 @@ export const expandedWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '37rem',
+  width: '27rem',
   height: 'fit-content',
 
   backgroundColor: `${vars.themeColor.color.searchBarBackground}`,
