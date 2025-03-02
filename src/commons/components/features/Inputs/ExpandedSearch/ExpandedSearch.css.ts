@@ -32,7 +32,7 @@ export const expandedWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '27rem',
+  width: '38rem',
   height: 'fit-content',
 
   ...mediaQueries({
