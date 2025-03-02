@@ -3,15 +3,26 @@ import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
+  // flex: 1,
+
+  width: '100%',
   display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridTemplateColumns: 'repeat(5, 1fr)',
+  gridTemplateRows: 'repeat(2, 1fr)',
 
   marginTop: '60px',
-  maxWidth: '1200px',
+  maxWidth: '1740px',
 
-  gap: '30px',
+  gap: '35px',
 
+  padding: '0 20px',
   ...mediaQueries({
+    desktopXLarge: {
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    },
+    desktopLarge: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
     tabletLarge: {
       gridTemplateColumns: 'repeat(3, 1fr)',
     },
@@ -31,20 +42,24 @@ export const cardWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '15.6rem',
-  height: '19.9rem',
+  width: '100%',
+  maxWidth: '23rem',
+  height: '26rem',
   borderRadius: '12px',
+
+  justifySelf: 'center',
 
   overflow: 'hidden',
 
   ...mediaQueries({
     tablet: {
-      width: '20rem',
-      height: '19.9rem',
+      height: '22rem',
+    },
+    tabletSmall: {
+      height: '22rem',
     },
     mobile: {
-      width: '100%',
-      height: '19.9rem',
+      height: '24rem',
     },
   }),
 
@@ -60,12 +75,7 @@ export const cardWrapper = style({
 export const imageWrapper = style({
   position: 'relative',
   width: '100%',
-  height: '130px',
-});
-
-export const cardImageWrapper = style({
-  width: '250px',
-  height: '130px',
+  height: '180px',
 });
 
 export const bottomWrapper = style({
@@ -73,7 +83,9 @@ export const bottomWrapper = style({
   flexDirection: 'column',
   flex: 1,
 
-  padding: '6px 12px 12px',
+  padding: '12px 12px 0',
+
+  justifyContent: 'space-between',
 });
 
 export const title = style({
@@ -85,6 +97,8 @@ export const infoWrapper = style({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
+
+  marginTop: 'auto',
 });
 
 export const textWrapper = style({
@@ -95,7 +109,7 @@ export const textWrapper = style({
 
 export const company = style({
   marginRight: '4px',
-  fontSize: '14px',
+  fontSize: '16px',
 });
 
 export const date = style({
