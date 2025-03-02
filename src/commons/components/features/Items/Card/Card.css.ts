@@ -1,15 +1,29 @@
 import { vars } from '@/commons/styles/globalStyles.css';
+import { mediaQueries } from '@/commons/utils/ui/mediaQueries/mediaQueries';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-
-  marginTop: '60px',
-  // maxWidth: '80rem',
-  maxWidth: '1200px',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(15.6rem, 1fr))',
   gap: '30px',
+  marginTop: '60px',
+  maxWidth: '1200px',
+  backgroundColor: 'red',
+
+  ...mediaQueries({
+    tabletLarge: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    tablet: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    tabletSmall: {
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
+    mobile: {
+      gridTemplateColumns: '1fr',
+    },
+  }),
 });
 
 export const cardWrapper = style({
