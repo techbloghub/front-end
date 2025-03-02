@@ -7,6 +7,7 @@ export const wrapper = style({
   justifyContent: 'center',
 
   marginTop: '60px',
+  // maxWidth: '80rem',
   maxWidth: '1200px',
   gap: '30px',
 });
@@ -15,8 +16,8 @@ export const cardWrapper = style({
   display: 'flex',
   flexDirection: 'column',
 
-  width: '250px',
-  height: '320px',
+  width: '15.6rem',
+  height: '19.9rem',
   borderRadius: '12px',
 
   backgroundColor: `${vars.themeColor.color.secondary}`,
