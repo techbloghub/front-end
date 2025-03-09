@@ -1,7 +1,7 @@
 import ThemeProvider from '@/commons/providers/ThemeProvider/ThemeProvider.tsx';
 import '../commons/styles/globalStyles.css.ts';
 import { Metadata } from 'next';
-import QueryProvider from '@/commons/providers/QueryProvider/queryProvider.tsx';
+import QueryProvider from '@/commons/providers/QueryProvider/QueryProvider.tsx';
 
 export const metadata: Metadata = {
   title: 'TechBlogHub - IT 기업 기술 블로그 포스트 모음',
