@@ -26,6 +26,7 @@ const themeColor = createThemeContract({
     searchBarBackground: null,
     cardBackground: null,
     tagIconBackground: null,
+    placeholder: null,
   },
 });
 
@@ -40,6 +41,7 @@ export const lightTheme = createTheme(themeColor, {
     searchBarBackground: '#d9d9d9',
     cardBackground: '#d9d9d9',
     tagIconBackground: '#ffffff',
+    placeholder: '#757575',
   },
 });
 
@@ -54,6 +56,7 @@ export const darkTheme = createTheme(themeColor, {
     searchBarBackground: '#ffffff',
     cardBackground: '#6A6868',
     tagIconBackground: '#343330',
+    placeholder: '#757575',
   },
 });
 
