@@ -61,4 +61,8 @@ export const searchInput = style({
 
   border: 'none',
   outline: 'none',
+
+  '::placeholder': {
+    color: vars.themeColor.color.placeholder,
+  },
 });

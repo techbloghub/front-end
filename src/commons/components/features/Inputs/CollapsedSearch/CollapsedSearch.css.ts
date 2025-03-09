@@ -1,3 +1,4 @@
+import { vars } from '@/commons/styles/globalStyles.css';
 import { style } from '@vanilla-extract/css';
 
 export const collapsedSearchWrapper = style({
@@ -9,7 +10,7 @@ export const collapsedSearchWrapper = style({
 });
 
 export const placeholder = style({
-  color: '#999',
+  color: vars.themeColor.color.placeholder,
 
   fontSize: '14px',
 });

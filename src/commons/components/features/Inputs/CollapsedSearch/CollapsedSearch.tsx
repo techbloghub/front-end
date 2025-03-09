@@ -20,7 +20,11 @@ export const CollapsedSearch = ({
         aria-label="검색 확장 버튼"
         onKeyDown={handleKeyDown}
       >
-        {tagList.length > 0 ? <TagList tags={tagList} /> : <p className={styles.placeholder}>검색어를 입력해주세요.</p>}
+        {tagList.length > 0 ? (
+          <TagList tags={tagList} />
+        ) : (
+          <p className={styles.placeholder}>검색어를 입력해 주세요.</p>
+        )}
       </div>
       <Image src="/images/buttons/readingGlasses.png" alt="ReadingGlasses" width={22} height={30} />
     </>

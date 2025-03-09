@@ -29,7 +29,7 @@ export const ExpandedSearch = ({
         <input
           className={styles.searchInput}
           type="text"
-          placeholder="검색어를 입력하세요"
+          placeholder="검색어를 입력해 주세요."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
