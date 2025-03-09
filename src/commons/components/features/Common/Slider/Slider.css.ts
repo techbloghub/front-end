@@ -23,6 +23,16 @@ export const Bar = style({
   height: '100%',
 
   backgroundColor: `${vars.themeColor.color.secondary}`,
+
+  '::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: '-15px',
+    right: '-15px',
+    height: '100%',
+    cursor: 'pointer',
+  },
 });
 
 export const Circle = style({
