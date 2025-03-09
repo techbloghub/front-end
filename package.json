@@ -12,6 +12,8 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.67.2",
+    "@tanstack/react-query-devtools": "^5.67.2",
     "@vanilla-extract/css": "^1.15.3",
     "@vanilla-extract/next-plugin": "^2.4.3",
     "@vanilla-extract/webpack-plugin": "^2.3.11",
