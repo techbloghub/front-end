@@ -24,6 +24,7 @@
     "no-console": "off",
     "react/function-component-definition": "off",
     "arrow-body-style": "off",
-    "jsx-a11y/no-autofocus": "off"
+    "jsx-a11y/no-autofocus": "off",
+    "react/require-default-props": "off"
   }
 }
