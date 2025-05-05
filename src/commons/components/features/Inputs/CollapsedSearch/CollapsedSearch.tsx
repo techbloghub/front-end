@@ -1,4 +1,3 @@
-import { collapsedSearchWrapper } from './CollapsedSearch.css';
 import { KeyboardEvent } from 'react';
 import Image from 'next/image';
 import { TagList } from '../../Lists/TagList/TagList';
