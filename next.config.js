@@ -1,9 +1,8 @@
-const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
-
-const withVanillaExtract = createVanillaExtractPlugin();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['images.pexels.com'],
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
@@ -18,4 +17,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withVanillaExtract(nextConfig);
+module.exports = nextConfig;
